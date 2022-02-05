@@ -1,0 +1,42 @@
+version: "3.8"
+
+services:
+  nginx:
+    container_name: image-hub-nginx
+    ports:
+      - 8080:8080
+    image: nginx:stable-alpine
+    volumes:
+      - ./:/app
+      - ./docker/nginx:/etc/nginx/conf.d
+    depends_on:
+      - php
+
+  php:
+    container_name: image-hub-php
+    build: ./docker/php
+    volumes:
+      - ./:/app
+    depends_on:
+      - db
+      - redis
+    restart: unless-stopped
+
+  db:
+    container_name: image-hub-db
+    build: ./docker/postgres
+    ports:
+      - 5432:5432
+    restart: always
+    volumes:
+      - image-hub-db-data:/var/lib/postgresql/data
+
+  redis:
+    container_name: image-hub-redis
+    ports:
+      - 6379:6379
+    image: redis:alpine
+    entrypoint: redis-server
+
+volumes:
+  image-hub-db-data:

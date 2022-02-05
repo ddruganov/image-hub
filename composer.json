@@ -1,0 +1,32 @@
+{
+  "name": "ddruganov/image-hub",
+  "description": "Yii 2 Api Project Template",
+  "keywords": [
+    "yii2",
+    "api",
+    "project template"
+  ],
+  "type": "project",
+  "minimum-stability": "stable",
+  "require": {
+    "php": "^8",
+    "yiisoft/yii2": "^2",
+    "ddruganov/yii2-api-essentials": "^1.0",
+    "yiisoft/yii2-redis": "^2.0"
+  },
+  "config": {
+    "process-timeout": 1800,
+    "fxp-asset": {
+      "enabled": false
+    },
+    "allow-plugins": {
+      "yiisoft/yii2-composer": true
+    }
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ]
+}
