@@ -42,7 +42,7 @@ class ImageUploadForm extends AbstractApiModel
         }
 
         $filepath = Yii::getAlias("@upload/{$image->constructPath()}");
-        $folder = implode('/', explode('/', $filepath, -1));
+        $folder = dirname($filepath);
         if (!file_exists($folder) && !mkdir($folder, 0777, true)) {
             return ExecutionResult::exception('Unable to create a folder to put the image into');
         }

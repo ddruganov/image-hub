@@ -2,5 +2,5 @@
 
 return [
     '/upload' => 'upload/index',
-    '/<id:\d+>' => 'view/index',
+    '/<id:\d+>' => 'transform/index',
 ];

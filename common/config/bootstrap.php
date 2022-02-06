@@ -7,3 +7,4 @@ Yii::setAlias('@console', Yii::getAlias('@root/console'));
 Yii::setAlias('@vendor', Yii::getAlias('@root/vendor'));
 Yii::setAlias('@logs', Yii::getAlias('@root/logs'));
 Yii::setAlias('@upload', Yii::getAlias('@root/upload'));
+Yii::setAlias('@transformed', Yii::getAlias('@root/transformed'));

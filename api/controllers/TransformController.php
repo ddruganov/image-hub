@@ -2,7 +2,7 @@
 
 namespace api\controllers;
 
-use api\models\ImageViewForm;
+use api\models\ImageTransformForm;
 use ddruganov\Yii2ApiEssentials\http\actions\ApiAction;
 use ddruganov\Yii2ApiEssentials\http\actions\ClosureAction;
 use Yii;
@@ -10,7 +10,7 @@ use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\Response;
 
-class ViewController extends Controller
+class TransformController extends Controller
 {
     public function behaviors()
     {
@@ -30,8 +30,8 @@ class ViewController extends Controller
             'index' => [
                 'class' => ClosureAction::class,
                 'closure' => function (ApiAction $apiAction) {
-                    $imageViewForm = new ImageViewForm($apiAction->getData());
-                    $result = $imageViewForm->run();
+                    $imageTransformForm = new ImageTransformForm($apiAction->getData());
+                    $result = $imageTransformForm->run();
                     if (!$result->isSuccessful()) {
                         Yii::$app->getResponse()->format = Response::FORMAT_JSON;
                         return $result;

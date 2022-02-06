@@ -36,7 +36,7 @@ final class UploadedImage extends UploadedFile
 
     public function getHash()
     {
-        return Yii::$app->get('hasher')->file($this->getTmpName());
+        return Yii::$app->get('hasher')->hashFile($this->getTmpName());
     }
 
     public static function getInstanceByName($name): static
